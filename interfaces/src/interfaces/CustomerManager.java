@@ -18,10 +18,17 @@ public class CustomerManager {
 		
 		//Dependency Injection yaparak alltaki kodu yazdik
 	//	this.logger.log(customer.getFirstName());coklu yapacagimiz icin comment yaptýk
+
 		
-		for (Logger logger : loggers) {
-			logger.log(customer.getFirstName());
-		}
+		//UTILS sýnýfý yazdýgým icin kapattýk		
+//		for (Logger logger : loggers) {
+//			logger.log(customer.getFirstName());
+//		}
+		
+	///	Utils utils = new Utils(); bunu new lemek yerine static yaparýz
+	///utils.runLoggers(loggers, customer.getFirstName());//Static icin Sýnýfýn ismini verip kulanýlýr
+		Utils.runLoggers(loggers, customer.getFirstName());
+		
 	}
 
 	public void delete(Customer customer) {
@@ -29,10 +36,14 @@ public class CustomerManager {
 
 //		DatabaseLogger logger = new DatabaseLogger();
 //		logger.log(customer.getFirstName() + " veri tabanýna loglandý!");
-	
-		for (Logger logger : loggers) {
-			logger.log(customer.getFirstName());
-		}
+
+		///Asagida static'e cevirek yazdýk
+//		for (Logger logger : loggers) {
+//			logger.log(customer.getFirstName());
+//		}
+		
+		Utils.runLoggers(loggers, customer.getFirstName());
+		
 	}
 }
 //CustomerManager loglamaya bagimlidir.
